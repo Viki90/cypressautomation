@@ -8,7 +8,7 @@ describe("My First Test", () => {
     cy.wait(2000);
 
     cy.get(".product:visible").should("have.length", 4);
-    cy.get("products").as("productLocator");
+    cy.get(".products").as("productLocator");
     // Parent child chaining
     cy.get("@productLocator").find(".product").should("have.length", 4);
 
