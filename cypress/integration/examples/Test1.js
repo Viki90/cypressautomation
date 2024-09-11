@@ -14,6 +14,8 @@ describe("My First Test", () => {
 
     cy.get(".products").find(".product").eq(2).contains("ADD TO CART").click();
 
+    cy.log("hello");
+
     cy.get(".products")
       .find(".product")
       .each(($el, index, $list) => {
@@ -22,5 +24,9 @@ describe("My First Test", () => {
           cy.wrap($el).find("button").click();
         }
       });
+
+    cy.get(".brand").then(function (logoelement) {
+      cy.log(logoelement.text());
+    });
   });
 });
