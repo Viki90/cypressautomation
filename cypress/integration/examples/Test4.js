@@ -17,6 +17,6 @@ describe("My 4 Test", () => {
     cy.get('input[type="checkbox"]').check(["option2", "option3"]);
 
     // static dropdown
-    cy.get("select").select("option2");
+    cy.get("select").select("option2").should("have.value", "option2");
   });
 });
