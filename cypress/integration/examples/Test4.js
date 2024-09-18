@@ -30,10 +30,14 @@ describe("My 4 Test", () => {
 
     cy.get("#autocomplete").should("have.value", "India");
 
+    // show/ hide elements
     cy.get("#displayed-text").should("be.visible");
     cy.get("#hide-textbox").click();
     cy.get("#displayed-text").should("not.be.visible");
     cy.get("#show-textbox").click();
     cy.get("#displayed-text").should("be.visible");
+
+    // radio buttons
+    cy.get('[value="radio2"]').check().should("be.checked");
   });
 });
