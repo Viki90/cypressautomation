@@ -5,6 +5,9 @@ describe("My 4 Test", () => {
   it("Does not do much!", () => {
     cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
-    cy.get("#checkBoxOption1").check().should("be.checked");
+    cy.get("#checkBoxOption1")
+      .check()
+      .should("be.checked")
+      .and("have.value", "option1");
   });
 });
