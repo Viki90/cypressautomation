@@ -14,5 +14,10 @@ describe("My 5 Test", () => {
         "Hello , share this practice page and share your knowledge"
       );
     });
+
+    cy.on("window:confirm", (str) => {
+      // Mocha
+      expect(str).to.equal("Hello , Are you sure you want to confirm?");
+    });
   });
 });
