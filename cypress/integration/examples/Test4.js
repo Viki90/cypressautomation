@@ -14,6 +14,6 @@ describe("My 4 Test", () => {
     cy.get("#checkBoxOption1").uncheck().should("not.be.checked");
 
     // check multiple checkboxes
-    cy.get('input[type="checkbox"]').check();
+    cy.get('input[type="checkbox"]').check(["option2", "option3"]);
   });
 });
