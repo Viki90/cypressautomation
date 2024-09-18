@@ -27,5 +27,7 @@ describe("My 4 Test", () => {
         cy.wrap($el).click();
       }
     });
+
+    cy.get("#autocomplete").should("have.value", "India");
   });
 });
