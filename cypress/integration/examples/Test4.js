@@ -15,5 +15,8 @@ describe("My 4 Test", () => {
 
     // check multiple checkboxes
     cy.get('input[type="checkbox"]').check(["option2", "option3"]);
+
+    // static dropdown
+    cy.get("select").select("option2");
   });
 });
