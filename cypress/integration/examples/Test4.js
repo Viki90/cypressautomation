@@ -9,5 +9,8 @@ describe("My 4 Test", () => {
       .check()
       .should("be.checked")
       .and("have.value", "option1");
+
+    // uncheck
+    cy.get("#checkBoxOption1").uncheck().should("not.be.checked");
   });
 });
