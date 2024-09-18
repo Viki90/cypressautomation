@@ -18,5 +18,14 @@ describe("My 4 Test", () => {
 
     // static dropdown
     cy.get("select").select("option2").should("have.value", "option2");
+
+    // dynamic dropdown
+    cy.get("#autocomplete").type("ind");
+
+    cy.get(".ui-menu-item div").each(($el, index, $list) => {
+      if ($el.text() === "India") {
+        cy.wrap($el).click();
+      }
+    });
   });
 });
