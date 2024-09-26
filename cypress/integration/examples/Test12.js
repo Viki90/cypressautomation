@@ -27,5 +27,14 @@ describe("My 12 Test", () => {
     //cy.get("select").select(this.data.gender);
     cy.get("select").contains("option", this.data.gender).should("exist");
     cy.get("select").select(this.data.gender);
+
+    cy.get('input[name="name"]:nth-child(2)').should(
+      "have.value",
+      this.data.name
+    );
+
+    cy.get('input[name="name"]:nth-child(2)').should("attr", "minlength", "2");
+
+    cy.get("#inlineRadio3").should("be.disabled");
   });
 });
