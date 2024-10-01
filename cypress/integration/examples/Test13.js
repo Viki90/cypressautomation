@@ -39,6 +39,8 @@ describe("My 12 Test", () => {
 
     cy.get(":nth-child(2) > .nav-link").click();
 
-    cy.selectProduct("Blackberry");
+    this.data.productName.forEach((element) => {
+      cy.selectProduct(element);
+    });
   });
 });
