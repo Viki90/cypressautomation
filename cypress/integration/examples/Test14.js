@@ -1,5 +1,6 @@
 /// <reference types="Cypress" />
 import HomePage from "../pageObjects/HomePage";
+import ProductPage from "../pageObjects/ProductPage";
 
 describe("My 14 Test", () => {
   before(function () {
@@ -11,6 +12,7 @@ describe("My 14 Test", () => {
 
   it("Does not do much!", function () {
     const homePage = new HomePage();
+    const productPage = new ProductPage();
 
     cy.visit("https://rahulshettyacademy.com/angularpractice/");
     homePage.getEditBox().type(this.data.name);
@@ -45,5 +47,7 @@ describe("My 14 Test", () => {
     this.data.productName.forEach((element) => {
       cy.selectProduct(element);
     });
+
+    productPage.getCheckoutButton().click();
   });
 });
