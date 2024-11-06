@@ -2,7 +2,7 @@
 import HomePage from "../pageObjects/HomePage";
 import ProductPage from "../pageObjects/ProductPage";
 
-describe("My 14 Test", () => {
+describe("My 15 Test", () => {
   before(function () {
     cy.fixture("example").then((data) => {
       this.data = data;
@@ -49,5 +49,14 @@ describe("My 14 Test", () => {
     });
 
     productPage.getCheckoutButton().click();
+
+    cy.contains("Checkout").click();
+    cy.get("#country").type("India");
+    cy.get(".suggestions > ul > li > a", { timeout: 10000 })
+      .should("be.visible")
+      .then(($el) => {
+        // Click the element
+        cy.wrap($el).click();
+      });
   });
 });
