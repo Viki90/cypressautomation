@@ -58,5 +58,12 @@ describe("My 15 Test", () => {
         // Click the element
         cy.wrap($el).click();
       });
+    cy.get("#checkbox2").click({ force: true });
+    cy.get("input[type='submit']").click();
+
+    cy.get(".alert").then(function (element) {
+      const actualText = element.text();
+      expect(actualText.includes("Success")).to.be.true;
+    });
   });
 });
