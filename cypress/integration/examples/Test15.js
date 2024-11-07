@@ -50,7 +50,28 @@ describe("My 15 Test", () => {
 
     productPage.getCheckoutButton().click();
 
+    var sum = 0;
+    var res;
+
+    cy.get("tr td:nth-child(4) strong")
+      .each(($el, index, $list) => {
+        const amount = $el.text();
+        res = amount.split(" ");
+        res = res[1].trim();
+        sum = Number(sum) + Number(res);
+      })
+      .then(function () {
+        cy.log(sum);
+      });
+
+    cy.get("h3 strong").then(function (element) {
+      const amount = element.text();
+      var res = amount.split(" ");
+      total = res[1].trim();
+    });
+
     cy.contains("Checkout").click();
+
     cy.get("#country").type("India");
     cy.get(".suggestions > ul > li > a", { timeout: 10000 })
       .should("be.visible")
