@@ -67,7 +67,8 @@ describe("My 15 Test", () => {
     cy.get("h3 strong").then(function (element) {
       const amount = element.text();
       var res = amount.split(" ");
-      total = res[1].trim();
+      let total = res[1].trim();
+      expect(Number(total)).to.equal(sum);
     });
 
     cy.contains("Checkout").click();
