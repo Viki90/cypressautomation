@@ -4,19 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports --inline",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "headTest": "npx cypress run --headed",
+    "recordDaschboardTest": "npx cypress run --record --key 5f4b3b3b-7b3b-4b3b-8b3b-3b3b3b3b3b3b",
+    "chromeTest": "npx cypress run --browser chrome"
   },
-  "author": "",
+  "author": "Viki",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.15.2",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
-    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports --inline",
-    "posttest": "npm run combine-reports && npm run generate-report"
   }
 }

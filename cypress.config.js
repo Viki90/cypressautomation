@@ -10,12 +10,21 @@ module.exports = defineConfig({
     overwrite: true,
     html: true,
     json: true,
+    charts: true,
+    reportPageTitle: "custom-title",
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: true,
+    videoOnFailOnly: false,
   },
 
   projectId: "uzqxkb",
   defaultCommandTimeout: 6000,
   env: {
     url: "https://rahulshettyacademy.com",
+  },
+  retries: {
+    runMode: 1,
   },
   e2e: {
     setupNodeEvents(on, config) {
