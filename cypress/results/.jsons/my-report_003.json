@@ -1,0 +1,113 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-09T20:14:17.794Z",
+    "end": "2024-11-09T20:14:21.526Z",
+    "duration": 3732,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "19de4923-6f83-43e7-8ca1-d30191c7ed64",
+      "title": "",
+      "fullFile": "cypress/integration/examples/Test12.js",
+      "file": "cypress/integration/examples/Test12.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a4a31bb0-c4f1-484c-ad87-b6fc31337d6f",
+          "title": "My 12 Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "My 12 Test Does not do much!",
+              "timedOut": null,
+              "duration": 2755,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://rahulshettyacademy.com/angularpractice/\");\ncy.get('input[name=\"name\"]:nth-child(2)').should(\"be.visible\");\ncy.get('input[name=\"name\"]:nth-child(2)').type(this.data.name);\n// Ensure the select element is visible and log its options\ncy.get(\"select\").should(\"be.visible\").then($select => {\n  const options = $select.find(\"option\").map((i, el) => el.value).get();\n  cy.log(\"Available options:\", options);\n});\n//cy.get(\"select\").select(this.data.gender);\ncy.get(\"select\").contains(\"option\", this.data.gender).should(\"exist\");\ncy.get(\"select\").select(this.data.gender);\ncy.get('input[name=\"name\"]:nth-child(2)').should(\"have.value\", this.data.name);\ncy.get('input[name=\"name\"]:nth-child(2)').should(\"attr\", \"minlength\", \"2\");\ncy.get(\"#inlineRadio3\").should(\"be.disabled\");",
+              "err": {},
+              "uuid": "4959adea-80d2-4a93-9cbd-a7f5868a261e",
+              "parentUUID": "a4a31bb0-c4f1-484c-ad87-b6fc31337d6f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4959adea-80d2-4a93-9cbd-a7f5868a261e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2755,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report.html",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "reportDir": "cypress/results/.jsons",
+        "reportFilename": "my-report.html",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "custom-title",
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "videoOnFailOnly": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

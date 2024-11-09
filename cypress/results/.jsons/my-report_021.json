@@ -1,0 +1,113 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-09T20:39:14.534Z",
+    "end": "2024-11-09T20:39:32.477Z",
+    "duration": 17943,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "381b46f4-7014-4305-b8ca-f56c4c830e18",
+      "title": "",
+      "fullFile": "cypress/integration/examples/Test15.js",
+      "file": "cypress/integration/examples/Test15.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fe55540e-e3f9-4a85-af3e-6094ab0abca8",
+          "title": "My 15 Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "My 15 Test Does not do much!",
+              "timedOut": null,
+              "duration": 16892,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const homePage = new _HomePage.default();\nconst productPage = new _ProductPage.default();\ncy.visit(Cypress.env(\"url\") + \"/angularpractice/\");\nhomePage.getEditBox().type(this.data.name);\nhomePage.getGender().select(this.data.gender);\nhomePage.getTwoWayDataBinding().should(\"have.value\", this.data.name);\nhomePage.getEditBox().should(\"be.visible\");\n// Ensure the select element is visible and log its options\nhomePage.getGender().should(\"be.visible\").then($select => {\n  const options = $select.find(\"option\").map((i, el) => el.value).get();\n  cy.log(\"Available options:\", options);\n});\nhomePage.getGender().contains(\"option\", this.data.gender).should(\"exist\");\nhomePage.getGender().select(this.data.gender);\nhomePage.getTwoWayDataBinding().should(\"have.value\", this.data.name);\nhomePage.getEditBox().should(\"attr\", \"minlength\", \"2\");\nhomePage.getEnterpreneur().should(\"be.disabled\");\nhomePage.getShopTab().click();\nthis.data.productName.forEach(element => {\n  cy.selectProduct(element);\n});\nproductPage.getCheckoutButton().click();\nvar sum = 0;\nvar res;\ncy.get(\"tr td:nth-child(4) strong\").each(($el, index, $list) => {\n  const amount = $el.text();\n  res = amount.split(\" \");\n  res = res[1].trim();\n  sum = Number(sum) + Number(res);\n}).then(function () {\n  cy.log(sum);\n});\ncy.get(\"h3 strong\").then(function (element) {\n  const amount = element.text();\n  var res = amount.split(\" \");\n  let total = res[1].trim();\n  expect(Number(total)).to.equal(sum);\n});\ncy.contains(\"Checkout\").click();\ncy.get(\"#country\").type(\"India\");\ncy.get(\".suggestions > ul > li > a\", {\n  timeout: 10000\n}).should(\"be.visible\").then($el => {\n  // Click the element\n  cy.wrap($el).click();\n});\ncy.get(\"#checkbox2\").click({\n  force: true\n});\ncy.get(\"input[type='submit']\").click();\ncy.get(\".alert\").then(function (element) {\n  const actualText = element.text();\n  expect(actualText.includes(\"Success\")).to.be.true;\n});",
+              "err": {},
+              "uuid": "585eda3d-e659-4331-9d99-6acf8acbbffb",
+              "parentUUID": "fe55540e-e3f9-4a85-af3e-6094ab0abca8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "585eda3d-e659-4331-9d99-6acf8acbbffb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16892,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report.html",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "reportDir": "cypress/results/.jsons",
+        "reportFilename": "my-report.html",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "custom-title",
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "videoOnFailOnly": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

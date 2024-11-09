@@ -1,0 +1,113 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-11-09T20:14:58.030Z",
+    "end": "2024-11-09T20:15:38.652Z",
+    "duration": 40622,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ecf0685-e95c-45eb-ac24-61a7a9021da9",
+      "title": "",
+      "fullFile": "cypress/integration/examples/Test4.js",
+      "file": "cypress/integration/examples/Test4.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6a2d551c-81a7-40fe-b5da-3e27538c9d6b",
+          "title": "My 4 Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "My 4 Test Does not do much!",
+              "timedOut": null,
+              "duration": 39474,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://rahulshettyacademy.com/AutomationPractice/\");\ncy.get(\"#checkBoxOption1\").check().should(\"be.checked\").and(\"have.value\", \"option1\");\n// uncheck\ncy.get(\"#checkBoxOption1\").uncheck().should(\"not.be.checked\");\n// check multiple checkboxes\ncy.get('input[type=\"checkbox\"]').check([\"option2\", \"option3\"]);\n// static dropdown\ncy.get(\"select\").select(\"option2\").should(\"have.value\", \"option2\");\n// dynamic dropdown\ncy.get(\"#autocomplete\").type(\"ind\");\ncy.get(\".ui-menu-item div\").each(($el, index, $list) => {\n  if ($el.text() === \"India\") {\n    cy.wrap($el).click();\n  }\n});\ncy.get(\"#autocomplete\").should(\"have.value\", \"India\");\n// show/ hide elements\ncy.get(\"#displayed-text\").should(\"be.visible\");\ncy.get(\"#hide-textbox\").click();\ncy.get(\"#displayed-text\").should(\"not.be.visible\");\ncy.get(\"#show-textbox\").click();\ncy.get(\"#displayed-text\").should(\"be.visible\");\n// radio buttons\ncy.get('[value=\"radio2\"]').check().should(\"be.checked\");",
+              "err": {},
+              "uuid": "b859f6c1-b1fd-43a0-9792-34afbea86dbb",
+              "parentUUID": "6a2d551c-81a7-40fe-b5da-3e27538c9d6b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b859f6c1-b1fd-43a0-9792-34afbea86dbb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39474,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "my-report.html",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "reportDir": "cypress/results/.jsons",
+        "reportFilename": "my-report.html",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "custom-title",
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "videoOnFailOnly": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

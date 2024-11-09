@@ -1,21 +1,12 @@
 const { defineConfig } = require("cypress");
-
-const browserify = require("@cypress/browserify-preprocessor");
-const {
-  addCucumberPreprocessorPlugin,
-} = require("@badeball/cypress-cucumber-preprocessor");
-const {
-  preprendTransformerToOptions,
-} = require("@badeball/cypress-cucumber-preprocessor/browserify");
+const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
 
 async function setupNodeEvents(on, config) {
   // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
-  await addCucumberPreprocessorPlugin(on, config);
-
-  on(
-    "file:preprocessor",
-    browserify(preprendTransformerToOptions(config, browserify.defaultOptions))
-  );
+  await preprocessor.addCucumberPreprocessorPlugin(on, config);
+  require("cypress-mochawesome-reporter/plugin")(on);
+  on("file:preprocessor", browserify.default(config));
 
   // Make sure to return the config object as it might have been modified by the plugin.
   return config;
@@ -35,7 +26,7 @@ module.exports = defineConfig({
     reportPageTitle: "custom-title",
     embeddedScreenshots: true,
     inlineAssets: true,
-    saveAllAttempts: true,
+    saveAllAttempts: false,
     videoOnFailOnly: false,
   },
 
@@ -48,10 +39,8 @@ module.exports = defineConfig({
     runMode: 1,
   },
   e2e: {
-    setupNodeEvents(on, config) {
-      require("cypress-mochawesome-reporter/plugin")(on);
-    },
-    // specPattern: "cypress/integration/examples/*.js",
-    specPattern: "cypress/integration/examples/BDD/*.feature",
+    setupNodeEvents(on, config) {},
+    specPattern: "cypress/integration/examples/*.js",
+    //specPattern: "cypress/integration/examples/BDD/*.feature",
   },
 });
